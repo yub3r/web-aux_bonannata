@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 # Base directory
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -53,12 +54,23 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bonannata_site.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+# Database: usar SQLite por defecto en desarrollo, pero en entornos serverless
+# (como Vercel) es preferible evitar un archivo en disco (puede ser de solo-lectura).
+if os.environ.get('VERCEL') or os.environ.get('VERCEL_REGION'):
+    # En Vercel usamos una DB en memoria (no persistente) para evitar errores de I/O.
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': ':memory:',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 AUTH_PASSWORD_VALIDATORS = []
 
