@@ -41,8 +41,37 @@
         <div class="row justify-content-center">
           <div class="col-lg-10 text-center">
             <img src="{% static 'imagenes_wsap/hero/Recurso 15@3x.png' %}" alt="Auxilio Bonannata" class="hero-logo img-fluid d-block mx-auto mb-2">
-            <h1 class="display-5 fw-bold mt-3">Transporte y Auxilios. Rápidos. Seguros. Confiables.</h1>
-            <p class="lead mt-3">15 años acompañando a nuestros clientes en Villa Anisacate, Córdoba y región.</p>
+            <!-- Carrusel de texto dinámico (hero) -->
+            <div id="heroTextCarousel" class="carousel carousel-fade hero-text-carousel" data-bs-ride="carousel" data-bs-interval="4200" data-bs-pause="false">
+              <div class="carousel-inner">
+                <!-- Slide 0: Texto original -->
+                <div class="carousel-item active">
+                  <h1 class="display-5 fw-bold mb-3">Transporte y Auxilios. Rápidos. Seguros. Confiables.</h1>
+                  <p class="lead mb-0">15 años acompañando a nuestros clientes en Villa Anisacate, Córdoba y región.</p>
+                </div>
+                <!-- Slide 1: Carga pesada -->
+                <div class="carousel-item">
+                  <h1 class="display-6 fw-bold mb-3"><i class="bi bi-truck hero-icon me-2"></i>Carga pesada</h1>
+                  <p class="lead mb-0">Movemos maquinaria y cargas especiales con planificación y seguridad.</p>
+                </div>
+                <!-- Slide 2: Carga paletizada -->
+                <div class="carousel-item">
+                  <h1 class="display-6 fw-bold mb-3"><i class="bi bi-box-seam hero-icon me-2"></i>Carga paletizada</h1>
+                  <p class="lead mb-0">Optimización en tiempos de carga/descarga y cuidado del producto.</p>
+                </div>
+                <!-- Slide 3: Agropecuaria -->
+                <div class="carousel-item">
+                  <h1 class="display-6 fw-bold mb-3"><i class="bi bi-tree hero-icon me-2"></i>Agropecuaria</h1>
+                  <p class="lead mb-0">Soluciones para el sector agro: insumos, equipos y logística a campo.</p>
+                </div>
+                <!-- Slide 4: Auxilios mecánicos -->
+                <div class="carousel-item">
+                  <h1 class="display-6 fw-bold mb-3"><i class="bi bi-wrench-adjustable hero-icon me-2"></i>Auxilios mecánicos</h1>
+                  <p class="lead mb-0">Asistencia confiable en ruta y traslados, cuando más lo necesitás.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Fin carrusel hero -->
           </div>
         </div>
       </div>
@@ -55,47 +84,10 @@
           <div class="row mb-4 align-items-end">
             <div class="col-lg-8">
               <h2 class="fw-bold mb-1">Servicios</h2>
-              <p class="text-muted mb-0">Transporte integral: carga pesada, paletizada, agropecuaria y auxilios mecánicos.</p>
+              <!-- <p class="text-muted mb-0">Transporte integral: carga pesada, paletizada, agropecuaria y auxilios mecánicos.</p> -->
             </div>
           </div>
-          <div class="row g-4">
-            <div class="col-md-6 col-lg-3">
-              <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                  <div class="fs-1 text-primary mb-3"><i class="bi bi-truck"></i></div>
-                  <h5 class="card-title">Carga pesada</h5>
-                  <p class="card-text">Movemos maquinaria y cargas especiales con planificación y seguridad.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-              <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                  <div class="fs-1 text-primary mb-3"><i class="bi bi-box-seam"></i></div>
-                  <h5 class="card-title">Carga paletizada</h5>
-                  <p class="card-text">Optimización en tiempos de carga/descarga y cuidado del producto.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-              <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                  <div class="fs-1 text-primary mb-3"><i class="bi bi-tree"></i></div>
-                  <h5 class="card-title">Agropecuaria</h5>
-                  <p class="card-text">Soluciones para el sector agro: insumos, equipos y logística a campo.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-              <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                  <div class="fs-1 text-primary mb-3"><i class="bi bi-wrench-adjustable"></i></div>
-                  <h5 class="card-title">Auxilios mecánicos</h5>
-                  <p class="card-text">Asistencia confiable en ruta y traslados, cuando más lo necesitás.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <!-- Se removieron las 4 columnas de servicios; quedan solo los carruseles de flota -->
 
           <!-- Carruseles de flota -->
           <div class="row g-4 mt-1">
