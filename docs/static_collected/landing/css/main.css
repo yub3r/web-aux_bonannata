@@ -30,7 +30,7 @@ body {
   min-height: 100svh;  /* pequeños navegadores con barras */
   min-height: 100dvh;  /* viewport dinámico moderno */
   padding-top: var(--hero-offset); /* controla cuán arriba queda el logo */
-  background-image: url('/static/imagenes_wsap/hero/hero_background3_fhd_nologo.jpg');
+  background-image: url('../../imagenes_wsap/hero/hero_background3_fhd_nologo.jpg');
   background-size: cover;   /* sin bandas negras, puede recortar en extremos */
   background-repeat: no-repeat;
   background-position: top center;
@@ -116,7 +116,7 @@ body {
 
 /* Navbar con imagen de fondo personalizada */
 #mainNav {
-  background-image: url('/static/imagenes_wsap/hero/navbar_bg.jpg');
+  background-image: url('../../imagenes_wsap/hero/navbar_bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
