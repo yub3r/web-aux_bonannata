@@ -1,0 +1,112 @@
+:root {
+  /* Paleta corporativa */
+  --brand-yellow: #f3e032;
+  --brand-black: #000000;
+  --brand-green-1: #66a84e;
+  --brand-green-2: #9bc66e;
+  --brand-brown: #514d40;
+  --brand-olive: #405244;
+
+  /* Overrides de Bootstrap */
+  --bs-primary: var(--brand-yellow);
+  --bs-dark: var(--brand-black);
+
+  /* Offset vertical del contenido del hero (logo + textos) */
+  --hero-offset: clamp(3rem, 6vw, 6rem);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* altura aprox del navbar fijo */
+}
+
+body {
+  min-height: 100vh;
+}
+
+.hero-section {
+  /* Mantener la imagen completa visible: igualar la relación 1366x768 */
+  aspect-ratio: 1366 / 768;
+  width: 100%;
+  padding-top: var(--hero-offset); /* controla cuán arriba queda el logo */
+  background-image: url('/static/imagenes_wsap/hero/hero_background3_fhd_nologo.jpg');
+  background-size: contain; /* sin recorte, se ve completa */
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-color: var(--brand-black); /* relleno si sobra espacio */
+}
+
+/* Logo del hero: centrado y responsive */
+.hero-logo {
+  width: clamp(220px, 28vw, 520px); /* más grande por defecto */
+  height: auto;
+  margin-top: -0.5rem; /* ligeramente más arriba */
+}
+
+.hero-section .btn {
+  box-shadow: 0 .25rem .75rem rgba(0,0,0,.2);
+}
+
+/* Navbar y fondo oscuro a negro puro */
+.bg-dark { background-color: var(--brand-black) !important; }
+.navbar-dark .navbar-brand { color: var(--brand-yellow); }
+.navbar-dark .navbar-nav .nav-link { color: rgba(255,255,255,.75); }
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link.active { color: var(--brand-yellow); }
+/* Deshabilitamos shrink para evitar saltos de tamaño */
+.navbar-shrink { padding-top: .5rem; padding-bottom: .5rem; transition: none; }
+
+/* Navbar con imagen de fondo personalizada */
+#mainNav {
+  background-image: url('/static/imagenes_wsap/hero/navbar_bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* En vista colapsada (menú hamburguesa), usar negro sólido para evitar pixelado */
+@media (max-width: 991.98px) {
+  #mainNav {
+    background-image: none !important;
+    background-color: var(--brand-black) !important;
+  }
+}
+
+/* Botón primario en amarillo corporativo con texto negro */
+.btn-primary {
+  --bs-btn-color: #000; /* texto */
+  --bs-btn-bg: var(--brand-yellow);
+  --bs-btn-border-color: var(--brand-yellow);
+  --bs-btn-hover-bg: #e6d50f;
+  --bs-btn-hover-border-color: #e6d50f;
+  --bs-btn-active-bg: #d0c10d;
+  --bs-btn-active-border-color: #d0c10d;
+  --bs-btn-focus-shadow-rgb: 243,224,50; /* glow accesible */
+}
+
+/* Cards */
+.card .fs-1 { line-height: 1; }
+
+/* Contenedores con razón de aspecto */
+.aspect-16-9 { position: relative; width: 100%; }
+.aspect-16-9::before { content: ""; display: block; padding-top: 56.25%; }
+.aspect-content { position: absolute; inset: 0; }
+.object-fit-cover { object-fit: cover; }
+
+#servicios .carousel, #servicios .carousel-inner, #servicios .carousel-item {
+  height: 100%;
+}
+
+/* Detalles sutiles con paleta */
+.card { border: 1px solid rgba(64,82,68,.15); }
+.card .card-title { color: #1f1f1f; }
+.card .card-body { border-top: 3px solid rgba(64,82,68,.2); }
+
+#map { border: 1px solid rgba(64,82,68,.35); }
+
+/* Justificado del texto en la sección Nosotros */
+#nosotros p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+
+/* Footer */
+footer { margin-top: auto; }

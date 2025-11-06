@@ -1,0 +1,456 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Auxilio Bonannata – Transporte y Auxilios en Córdoba</title>
+    <meta name="description" content="Auxilio Bonannata: 15 años brindando auxilios mecánicos y transporte de carga pesada, paletizada y agropecuaria. Villa Anisacate, Córdoba." />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Bootstrap Icons (opcional) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <link href="{% static 'landing/css/main.css' %}" rel="stylesheet" />
+  </head>
+  <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80" tabindex="0">
+    <!-- Navbar -->
+    <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-semibold" href="#inicio">Auxilio Bonannata</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+            <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero / Inicio -->
+    <header id="inicio" class="hero-section d-flex align-items-center text-white">
+      <div class="container py-5">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 text-center">
+            <img src="{% static 'imagenes_wsap/hero/Recurso 15@3x.png' %}" alt="Auxilio Bonannata" class="hero-logo img-fluid d-block mx-auto mb-2">
+            <h1 class="display-5 fw-bold mt-3">Transporte y Auxilios. Rápidos. Seguros. Confiables.</h1>
+            <p class="lead mt-3">15 años acompañando a nuestros clientes en Villa Anisacate, Córdoba y región.</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Servicios -->
+  <section id="servicios" class="py-5 bg-light">
+        <div class="container">
+          <div class="row mb-4 align-items-end">
+            <div class="col-lg-8">
+              <h2 class="fw-bold mb-1">Servicios</h2>
+              <p class="text-muted mb-0">Transporte integral: carga pesada, paletizada, agropecuaria y auxilios mecánicos.</p>
+            </div>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                  <div class="fs-1 text-primary mb-3"><i class="bi bi-truck"></i></div>
+                  <h5 class="card-title">Carga pesada</h5>
+                  <p class="card-text">Movemos maquinaria y cargas especiales con planificación y seguridad.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                  <div class="fs-1 text-primary mb-3"><i class="bi bi-box-seam"></i></div>
+                  <h5 class="card-title">Carga paletizada</h5>
+                  <p class="card-text">Optimización en tiempos de carga/descarga y cuidado del producto.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                  <div class="fs-1 text-primary mb-3"><i class="bi bi-tree"></i></div>
+                  <h5 class="card-title">Agropecuaria</h5>
+                  <p class="card-text">Soluciones para el sector agro: insumos, equipos y logística a campo.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                  <div class="fs-1 text-primary mb-3"><i class="bi bi-wrench-adjustable"></i></div>
+                  <h5 class="card-title">Auxilios mecánicos</h5>
+                  <p class="card-text">Asistencia confiable en ruta y traslados, cuando más lo necesitás.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carruseles de flota -->
+          <div class="row g-4 mt-1">
+            <!-- Ford 4000 -->
+            <div class="col-md-6 col-lg-3">
+              <div class="card h-100 shadow-sm">
+                <div class="aspect-16-9">
+                  <div class="aspect-content">
+                    <div id="carouselFord" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="false">
+                      <div class="carousel-inner h-100">
+                        {% for img in ford_images %}
+                          <div class="carousel-item {% if forloop.first %}active{% endif %} h-100">
+                            <img src="{% static img %}" class="d-block w-100 h-100 object-fit-cover" alt="Ford 4000">
+                          </div>
+                        {% empty %}
+                          <div class="carousel-item active h-100">
+                            <div class="d-flex w-100 h-100 align-items-center justify-content-center bg-secondary text-white-50">Sin imágenes</div>
+                          </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-title mb-2">Ford 4000</h6>
+                  <p class="card-text small mb-0">Ford 4000. Grúa liviana para el traslado de vehículos livianos. Autos, camionetas, mulitas de carga, etc.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Iveco Daily -->
+            <div class="col-md-6 col-lg-3">
+              <div class="card h-100 shadow-sm">
+                <div class="aspect-16-9">
+                  <div class="aspect-content">
+                    <div id="carouselIveco" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="false">
+                      <div class="carousel-inner h-100">
+                        {% for img in iveco_images %}
+                          <div class="carousel-item {% if forloop.first %}active{% endif %} h-100">
+                            <img src="{% static img %}" class="d-block w-100 h-100 object-fit-cover" alt="Iveco Daily">
+                          </div>
+                        {% empty %}
+                          <div class="carousel-item active h-100">
+                            <div class="d-flex w-100 h-100 align-items-center justify-content-center bg-secondary text-white-50">Sin imágenes</div>
+                          </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-title mb-2">Iveco Daily</h6>
+                  <p class="card-text small mb-0">Iveco Daily. Grúa liviana para el traslado de vehículos livianos. Autos, camionetas, mulitas de carga, etc.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mercedes Benz 1624 / 1938 -->
+            <div class="col-md-6 col-lg-3">
+              <div class="card h-100 shadow-sm">
+                <div class="aspect-16-9">
+                  <div class="aspect-content">
+                    <div id="carouselBenz" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="false">
+                      <div class="carousel-inner h-100">
+                        {% for img in benz_images %}
+                          <div class="carousel-item {% if forloop.first %}active{% endif %} h-100">
+                            <img src="{% static img %}" class="d-block w-100 h-100 object-fit-cover" alt="Mercedes Benz 1624/1938">
+                          </div>
+                        {% empty %}
+                          <div class="carousel-item active h-100">
+                            <div class="d-flex w-100 h-100 align-items-center justify-content-center bg-secondary text-white-50">Sin imágenes</div>
+                          </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-title mb-2">Mercedes Benz 1624 / 1938</h6>
+                  <p class="card-text small mb-1">Mercedes Benz 1624 6x2. Grúa Pesada para el traslado de camiones, palas mecánicas, contenedores, tractores, etc.</p>
+                  <p class="card-text small mb-0">Mercedes Benz 1938. Grúa Pesada para el traslado de camiones de gran porte. Equipos enganchados. Colectivos, etc. Con brazo telescópico para la extracción de vehículos accidentados.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Semiremolque 14.50 -->
+            <div class="col-md-6 col-lg-3">
+              <div class="card h-100 shadow-sm">
+                <div class="aspect-16-9">
+                  <div class="aspect-content">
+                    <div id="carouselSemi" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="false">
+                      <div class="carousel-inner h-100">
+                        {% for img in semi_images %}
+                          <div class="carousel-item {% if forloop.first %}active{% endif %} h-100">
+                            <img src="{% static img %}" class="d-block w-100 h-100 object-fit-cover" alt="Semiremolque 14.50">
+                          </div>
+                        {% empty %}
+                          <div class="carousel-item active h-100">
+                            <div class="d-flex w-100 h-100 align-items-center justify-content-center bg-secondary text-white-50">Sin imágenes</div>
+                          </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-title mb-2">Semiremolque 14.50+</h6>
+                  <p class="card-text small mb-0">Semiremolque de 14.50 más para traslado de paquetera en gral paletizada. Contenedores marítimos 12 mts.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Segunda fila de carruseles -->
+          <div class="row g-4 mt-1">
+            <!-- Vulcano 2+1 18mts -->
+            <div class="col-md-6 col-lg-3">
+              <div class="card h-100 shadow-sm">
+                <div class="aspect-16-9">
+                  <div class="aspect-content">
+                    <div id="carouselVulcano" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="false">
+                      <div class="carousel-inner h-100">
+                        {% for img in vulcano_images %}
+                          <div class="carousel-item {% if forloop.first %}active{% endif %} h-100">
+                            <img src="{% static img %}" class="d-block w-100 h-100 object-fit-cover" alt="Carretón agrícola Vulcano 2+1 18mts">
+                          </div>
+                        {% empty %}
+                          <div class="carousel-item active h-100">
+                            <div class="d-flex w-100 h-100 align-items-center justify-content-center bg-secondary text-white-50">Sin imágenes</div>
+                          </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-title mb-2">Carretón agrícola Vulcano 2+1</h6>
+                  <p class="card-text small mb-0">Carreton agrícola Vulcano 2+1 de 18mts (mas 1,50mts del porton trasero). Ideal para grandes cargas como cosechadoras, tolvas, sembradoras,  etc.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Marcelini 2 ejes 18mts -->
+            <div class="col-md-6 col-lg-3">
+              <div class="card h-100 shadow-sm">
+                <div class="aspect-16-9">
+                  <div class="aspect-content">
+                    <div id="carouselMercelini" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="false">
+                      <div class="carousel-inner h-100">
+                        {% for img in mercelini_images %}
+                          <div class="carousel-item {% if forloop.first %}active{% endif %} h-100">
+                            <img src="{% static img %}" class="d-block w-100 h-100 object-fit-cover" alt="Carretón agrícola Marcelini 2 ejes 18mts">
+                          </div>
+                        {% empty %}
+                          <div class="carousel-item active h-100">
+                            <div class="d-flex w-100 h-100 align-items-center justify-content-center bg-secondary text-white-50">Sin imágenes</div>
+                          </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-title mb-2">Carretón agrícola Marcelini 2 ejes</h6>
+                  <p class="card-text small mb-0">Carreton agricola Marcelini 2 ejes 18mts de largo (mas 1,50mts de portón trasero). Larga plataforma ideal para cargas de gran volumen.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- LeoCor / Random 3 ejes -->
+            <div class="col-md-6 col-lg-3">
+              <div class="card h-100 shadow-sm">
+                <div class="aspect-16-9">
+                  <div class="aspect-content">
+                    <div id="carouselLeocor" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="false">
+                      <div class="carousel-inner h-100">
+                        {% for img in leocor_images %}
+                          <div class="carousel-item {% if forloop.first %}active{% endif %} h-100">
+                            <img src="{% static img %}" class="d-block w-100 h-100 object-fit-cover" alt="Carretón vial LeoCor 3 ejes / Random 3 ejes">
+                          </div>
+                        {% empty %}
+                          <div class="carousel-item active h-100">
+                            <div class="d-flex w-100 h-100 align-items-center justify-content-center bg-secondary text-white-50">Sin imágenes</div>
+                          </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-title mb-2">Carretón vial LeoCor / Random</h6>
+                  <p class="card-text small mb-1">Carreton vial LeoCor 3ejes pecho desmontable ideal para cargas pesadas. Sirve para traslado de excavadoras, motoniveladoras, retro palas, etc.</p>
+                  <p class="card-text small mb-0">Carreton vial Random 3 ejes. 12mts de explanada. Para cargar extremadamente pesadas! Topadoras, trituradora, excavadora etc.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Grúa plancha / tenedor -->
+            <div class="col-md-6 col-lg-3">
+              <div class="card h-100 shadow-sm">
+                <div class="aspect-16-9">
+                  <div class="aspect-content">
+                    <div id="carouselTenedor" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="false">
+                      <div class="carousel-inner h-100">
+                        {% for img in tenedor_images %}
+                          <div class="carousel-item {% if forloop.first %}active{% endif %} h-100">
+                            <img src="{% static img %}" class="d-block w-100 h-100 object-fit-cover" alt="Servicio de grúa liviano y pesado">
+                          </div>
+                        {% empty %}
+                          <div class="carousel-item active h-100">
+                            <div class="d-flex w-100 h-100 align-items-center justify-content-center bg-secondary text-white-50">Sin imágenes</div>
+                          </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-title mb-2">Grúa plancha / tenedor</h6>
+                  <p class="card-text small mb-0">Servicio de grúa liviano (auto y camionetas) Servicio de grúa pesada (tractores, palas mecánica,  camiones)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Nosotros y Objetivos -->
+      <section id="nosotros" class="pt-0 pb-5">
+        <div class="container">
+          <!-- Imagen superior a ancho de contenedor, sin bordes redondeados y pegada a Servicios -->
+          <div class="row g-0 mt-n5">
+            <div class="col-12">
+              <img src="{% static 'imagenes_wsap/hero/hero_background2.jpg' %}" alt="Sobre nosotros - Auxilio Bonannata" class="img-fluid w-100 d-block">
+            </div>
+          </div>
+          <div class="row justify-content-center mt-4">
+            <div class="col-lg-10">
+              <h2 class="fw-bold mb-3">Sobre Nosotros</h2>
+              <p>
+                <strong>Auxilio Bonannata</strong> es una empresa argentina con <strong>15 años de trayectoria</strong>, radicada en
+                <strong>Villa Anisacate</strong>, provincia de Córdoba.
+              </p>
+              <p>
+                Nuestros inicios estuvieron orientados a los servicios de auxilio, y con el paso del tiempo expandimos nuestras operaciones
+                para ofrecer un servicio integral en transporte de carga pesada, paletizada, agropecuaria y auxilios mecánicos.
+              </p>
+              <p>
+                Gracias a la confianza de nuestros clientes y al compromiso de nuestro equipo, hemos logrado consolidarnos como una empresa sólida,
+                reconocida por la seriedad, responsabilidad y eficiencia en cada servicio.
+              </p>
+
+              <h3 class="fw-semibold mt-4">Objetivos de la Empresa</h3>
+              <ul class="mt-2">
+                <li>Brindar un servicio seguro, rápido y confiable, adaptado a las necesidades de cada cliente.</li>
+                <li>Mantener un crecimiento sostenido, incorporando tecnología, innovación y capacitación permanente.</li>
+                <li>Consolidarnos como referentes en la región en el rubro del transporte de cargas y auxilios.</li>
+                <li>Garantizar la satisfacción de nuestros clientes, priorizando siempre la calidad y el profesionalismo.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contacto y Mapa -->
+      <section id="contacto" class="py-5 bg-light">
+        <div class="container">
+          <div class="row mb-4 align-items-end">
+            <div class="col-lg-8">
+              <h2 class="fw-bold mb-1">Contacto</h2>
+              <p class="text-muted mb-0">Escribinos y coordinamos tu traslado o asistencia.</p>
+            </div>
+          </div>
+
+          {% if messages %}
+          <div class="row mb-3">
+            <div class="col-lg-10">
+              {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}" role="alert">{{ message }}</div>
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
+
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <div class="card shadow-sm h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Dejanos tu consulta</h5>
+                  <form method="post" action="#contacto" novalidate>
+                    {% csrf_token %}
+                    <div class="mb-3">
+                      <label class="form-label">Nombre</label>
+                      <input type="text" name="nombre" class="form-control" value="{{ form.nombre.value|default:'' }}" required>
+                      {% if form.nombre.errors %}<div class="text-danger small">{{ form.nombre.errors|striptags }}</div>{% endif %}
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Email</label>
+                      <input type="email" name="email" class="form-control" value="{{ form.email.value|default:'' }}" required>
+                      {% if form.email.errors %}<div class="text-danger small">{{ form.email.errors|striptags }}</div>{% endif %}
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Teléfono</label>
+                      <input type="text" name="telefono" class="form-control" value="{{ form.telefono.value|default:'' }}">
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Mensaje</label>
+                      <textarea name="mensaje" rows="4" class="form-control" required>{{ form.mensaje.value|default:'' }}</textarea>
+                      {% if form.mensaje.errors %}<div class="text-danger small">{{ form.mensaje.errors|striptags }}</div>{% endif %}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="card shadow-sm h-100">
+                <div class="card-body">
+                  <h5 class="card-title mb-3">Dónde estamos</h5>
+                  <div id="map" style="height: 380px; border-radius: .5rem; overflow: hidden;"></div>
+                  <div class="small text-muted mt-2">Villa Anisacate, Córdoba, Argentina.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="py-4 bg-dark text-white-50">
+      <div class="container text-center small">
+        © {{ now|default:2025 }} Auxilio Bonannata — Todos los derechos reservados
+      </div>
+    </footer>
+
+    <!-- JS: Bootstrap y Leaflet -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script src="{% static 'landing/js/main.js' %}"></script>
+    <script>
+      // Inicializar Leaflet
+      const map = L.map('map').setView([-31.749, -64.322], 12); // Aprox. Villa Anisacate
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+      L.marker([-31.749, -64.322]).addTo(map)
+        .bindPopup('<b>Auxilio Bonannata</b><br>Villa Anisacate, Córdoba')
+        .openPopup();
+
+      // Si el formulario fue enviado, enfocar contacto
+      {% if submitted %}
+        location.hash = '#contacto';
+      {% endif %}
+    </script>
+  </body>
+  </html>
