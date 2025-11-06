@@ -1,0 +1,169 @@
+:root {
+  /* Paleta corporativa */
+  --brand-yellow: #f3e032;
+  --brand-black: #000000;
+  --brand-green-1: #66a84e;
+  --brand-green-2: #9bc66e;
+  --brand-brown: #514d40;
+  --brand-olive: #405244;
+
+  /* Overrides de Bootstrap */
+  --bs-primary: var(--brand-yellow);
+  --bs-dark: var(--brand-black);
+
+  /* Offset vertical del contenido del hero (logo + textos) */
+  --hero-offset: clamp(3rem, 6vw, 6rem);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* altura aprox del navbar fijo */
+}
+
+body {
+  min-height: 100vh;
+}
+
+.hero-section {
+  /* Llenar la ventana: hero ocupa toda la altura visible para que el pliegue coincida con el borde inferior del hero */
+  min-height: 100vh;   /* fallback */
+  min-height: 100svh;  /* pequeños navegadores con barras */
+  min-height: 100dvh;  /* viewport dinámico moderno */
+  padding-top: var(--hero-offset); /* controla cuán arriba queda el logo */
+  background-image: url('/static/imagenes_wsap/hero/hero_background3_fhd_nologo.jpg');
+  background-size: cover;   /* sin bandas negras, puede recortar en extremos */
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+/* Sombras para mejorar legibilidad sobre fondos variables */
+.hero-section h1,
+.hero-section p.lead {
+  /* Sombra mucho más intensa para mejorar legibilidad sobre fondos claros */
+  text-shadow:
+    0 1px 2px rgba(0,0,0,.85),
+    0 3px 6px rgba(0,0,0,.75),
+    0 6px 22px rgba(0,0,0,.70),
+    0 0 3px rgba(0,0,0,.9);
+  -webkit-text-stroke: 0.6px rgba(0,0,0,.35); /* leve contorno que no invade el color principal */
+}
+
+/* Carrusel de texto en hero: transiciones suaves y tamaño coherente */
+.hero-text-carousel .carousel-item { min-height: 220px; }
+.hero-text-carousel .carousel-item h1,
+.hero-text-carousel .carousel-item p { animation: fadeScale 0.6s ease; }
+@keyframes fadeScale {
+  from { opacity:0; transform: translateY(8px); }
+  to { opacity:1; transform: translateY(0); }
+}
+
+/* Iconos dinámicos: inician en un azul suave y migran a amarillo corporativo */
+.hero-icon {
+  color: #0d6efd;
+  transition: color .8s ease, transform .8s ease;
+}
+.hero-text-carousel .carousel-item.active .hero-icon {
+  color: var(--brand-yellow);
+  transform: scale(1.08);
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,.4));
+}
+
+
+@media (max-width: 576px) {
+  .hero-section h1,
+  .hero-section p.lead {
+    text-shadow:
+      0 1px 3px rgba(0,0,0,.9),
+      0 4px 10px rgba(0,0,0,.85),
+      0 8px 28px rgba(0,0,0,.8),
+      0 0 4px rgba(0,0,0,.95);
+    -webkit-text-stroke: 0.55px rgba(0,0,0,.4);
+  }
+}
+
+/* Logo del hero: centrado y responsive */
+.hero-logo {
+  width: clamp(220px, 28vw, 520px); /* más grande por defecto */
+  height: auto;
+  margin-top: -0.5rem; /* ligeramente más arriba */
+}
+
+/* Ajuste responsivo del offset y escala para asegurar composición equilibrada en distintos anchos */
+@media (max-width: 992px) {
+  :root { --hero-offset: clamp(2rem, 10vw, 4rem); }
+  .hero-logo { width: clamp(180px, 40vw, 360px); margin-top: 0; }
+}
+@media (max-width: 576px) {
+  :root { --hero-offset: clamp(2.5rem, 14vw, 3.5rem); }
+  .hero-logo { width: clamp(160px, 50vw, 300px); }
+  .hero-section h1 { font-size: clamp(1.6rem, 6.2vw, 2.1rem); }
+  .hero-section p.lead { font-size: clamp(1rem, 3.8vw, 1.15rem); }
+}
+
+.hero-section .btn {
+  box-shadow: 0 .25rem .75rem rgba(0,0,0,.2);
+}
+
+/* Navbar y fondo oscuro a negro puro */
+.bg-dark { background-color: var(--brand-black) !important; }
+.navbar-dark .navbar-brand { color: var(--brand-yellow); }
+.navbar-dark .navbar-nav .nav-link { color: rgba(255,255,255,.75); }
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link.active { color: var(--brand-yellow); }
+/* Deshabilitamos shrink para evitar saltos de tamaño */
+.navbar-shrink { padding-top: .5rem; padding-bottom: .5rem; transition: none; }
+
+/* Navbar con imagen de fondo personalizada */
+#mainNav {
+  background-image: url('/static/imagenes_wsap/hero/navbar_bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* En vista colapsada (menú hamburguesa), usar negro sólido para evitar pixelado */
+@media (max-width: 991.98px) {
+  #mainNav {
+    background-image: none !important;
+    background-color: var(--brand-black) !important;
+  }
+}
+
+/* Botón primario en amarillo corporativo con texto negro */
+.btn-primary {
+  --bs-btn-color: #000; /* texto */
+  --bs-btn-bg: var(--brand-yellow);
+  --bs-btn-border-color: var(--brand-yellow);
+  --bs-btn-hover-bg: #e6d50f;
+  --bs-btn-hover-border-color: #e6d50f;
+  --bs-btn-active-bg: #d0c10d;
+  --bs-btn-active-border-color: #d0c10d;
+  --bs-btn-focus-shadow-rgb: 243,224,50; /* glow accesible */
+}
+
+/* Cards */
+.card .fs-1 { line-height: 1; }
+
+/* Contenedores con razón de aspecto */
+.aspect-16-9 { position: relative; width: 100%; }
+.aspect-16-9::before { content: ""; display: block; padding-top: 56.25%; }
+.aspect-content { position: absolute; inset: 0; }
+.object-fit-cover { object-fit: cover; }
+
+#servicios .carousel, #servicios .carousel-inner, #servicios .carousel-item {
+  height: 100%;
+}
+
+/* Detalles sutiles con paleta */
+.card { border: 1px solid rgba(64,82,68,.15); }
+.card .card-title { color: #1f1f1f; }
+.card .card-body { border-top: 3px solid rgba(64,82,68,.2); }
+
+#map { border: 1px solid rgba(64,82,68,.35); }
+
+/* Justificado del texto en la sección Nosotros */
+#nosotros p { text-align: justify; text-justify: inter-word; hyphens: auto; }
+
+/* Footer */
+footer { margin-top: auto; }

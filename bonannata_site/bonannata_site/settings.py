@@ -12,6 +12,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -23,6 +24,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -69,10 +71,15 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = 'static/'
+# Carpeta destino para collectstatic (producción / despliegue)
+STATIC_ROOT = BASE_DIR / 'static_collected'
 STATICFILES_DIRS = [
     # Incluir la carpeta de recursos como estáticos para desarrollo
     (BASE_DIR.parent / 'recursos_download'),
 ]
+
+# WhiteNoise: almacenamiento comprimido y manifest para producción
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
