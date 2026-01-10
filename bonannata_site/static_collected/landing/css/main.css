@@ -48,6 +48,12 @@ body {
   -webkit-text-stroke: 0.6px rgba(0,0,0,.35); /* leve contorno que no invade el color principal */
 }
 
+.hero-section p.lead {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.45;
+}
+
 /* Carrusel de texto en hero: transiciones suaves y tamaño coherente */
 .hero-text-carousel .carousel-item { min-height: 220px; }
 .hero-text-carousel .carousel-item h1,
@@ -97,7 +103,11 @@ body {
   :root { --hero-offset: clamp(2.5rem, 14vw, 3.5rem); }
   .hero-logo { width: clamp(160px, 50vw, 300px); }
   .hero-section h1 { font-size: clamp(1.6rem, 6.2vw, 2.1rem); }
-  .hero-section p.lead { font-size: clamp(1rem, 3.8vw, 1.15rem); }
+  .hero-section p.lead {
+    font-size: clamp(1rem, 3.8vw, 1.15rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
 }
 
 .hero-section .btn {
