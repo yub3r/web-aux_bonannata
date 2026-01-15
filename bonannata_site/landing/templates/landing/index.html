@@ -157,7 +157,7 @@
                       <div class="carousel-inner h-100">
                         {% for img in benz_images %}
                           <div class="carousel-item {% if forloop.first %}active{% endif %} h-100">
-                            <img src="{% static img %}" class="d-block w-100 h-100 object-fit-cover" alt="Mercedes Benz 1624/1938">
+                            <img src="{% static img %}" class="d-block w-100 h-100 object-fit-cover" alt="Mercedes Benz 1624">
                           </div>
                         {% empty %}
                           <div class="carousel-item active h-100">
@@ -169,9 +169,8 @@
                   </div>
                 </div>
                 <div class="card-body">
-                  <h6 class="card-title mb-2">Mercedes Benz 1624 / 1938</h6>
+                  <h6 class="card-title mb-2">Mercedes Benz 1624</h6>
                   <p class="card-text small mb-1">Mercedes Benz 1624 6x2. Grúa Pesada para el traslado de camiones, palas mecánicas, contenedores, tractores, etc.</p>
-                  <p class="card-text small mb-0">Mercedes Benz 1938. Grúa Pesada para el traslado de camiones de gran porte. Equipos enganchados. Colectivos, etc. Con brazo telescópico para la extracción de vehículos accidentados.</p>
                 </div>
               </div>
             </div>
@@ -309,8 +308,9 @@
                   </div>
                 </div>
                 <div class="card-body">
-                  <h6 class="card-title mb-2">Grúa plancha / tenedor</h6>
-                  <p class="card-text small mb-0">Servicio de grúa liviano (auto y camionetas) Servicio de grúa pesada (tractores, palas mecánica,  camiones)</p>
+                  <h6 class="card-title mb-2">Mercedes Benz 1938. Grúa tenedor</h6>
+                  <p class="card-text small mb-1">Servicio de grúa liviano (auto y camionetas) Servicio de grúa pesada (tractores, palas mecánica,  camiones)</p>
+                  <p class="card-text small mb-0">Grúa Pesada para el traslado de camiones de gran porte. Equipos enganchados. Colectivos, etc. Con brazo telescópico para la extracción de vehículos accidentados.</p>
                 </div>
               </div>
             </div>
@@ -375,31 +375,51 @@
           </div>
           {% endif %}
 
+          <div class="row g-3 mb-4 contact-icons-row">
+            <div class="col-6 col-md-3">
+              <a class="contact-icon-tile" href="https://api.whatsapp.com/send/?phone=5493547632007&text&type=phone_number&app_absent=0" target="_blank" rel="noopener">
+                <img src="/static/landing/recursos_download/whatsapp.png" alt="WhatsApp" class="contact-icon-img">
+              </a>
+            </div>
+            <div class="col-6 col-md-3">
+              <a class="contact-icon-tile" href="https://www.instagram.com/auxilio.bonannata/" target="_blank" rel="noopener">
+                <img src="/static/landing/recursos_download/instagram.png" alt="Instagram" class="contact-icon-img">
+              </a>
+            </div>
+            <div class="col-6 col-md-3">
+              <a class="contact-icon-tile" href="https://www.tiktok.com/@auxilio.bonannata" target="_blank" rel="noopener">
+                <img src="/static/landing/recursos_download/tik-tok.png" alt="TikTok" class="contact-icon-img">
+              </a>
+            </div>
+            <div class="col-6 col-md-3">
+              <a class="contact-icon-tile" href="https://www.facebook.com/profile.php?id=61574162548636" target="_blank" rel="noopener">
+                <img src="/static/landing/recursos_download/facebook.png" alt="Facebook" class="contact-icon-img">
+              </a>
+            </div>
+          </div>
+
           <div class="row g-4">
             <div class="col-lg-6">
               <div class="card shadow-sm h-100">
                 <div class="card-body">
                   <h5 class="card-title">Dejanos tu consulta</h5>
-                  <form method="post" action="#contacto" novalidate>
-                    {% csrf_token %}
+                  <!-- Formspree: reemplaza FORMSPREE_ID con tu ID de Formspree -->
+                  <form method="POST" action="https://formspree.io/f/mdaaorgd" novalidate>
                     <div class="mb-3">
                       <label class="form-label">Nombre</label>
-                      <input type="text" name="nombre" class="form-control" value="{{ form.nombre.value|default:'' }}" required>
-                      {% if form.nombre.errors %}<div class="text-danger small">{{ form.nombre.errors|striptags }}</div>{% endif %}
+                      <input type="text" name="nombre" class="form-control" required>
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Email</label>
-                      <input type="email" name="email" class="form-control" value="{{ form.email.value|default:'' }}" required>
-                      {% if form.email.errors %}<div class="text-danger small">{{ form.email.errors|striptags }}</div>{% endif %}
+                      <input type="email" name="email" class="form-control" required>
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Teléfono</label>
-                      <input type="text" name="telefono" class="form-control" value="{{ form.telefono.value|default:'' }}">
+                      <input type="text" name="telefono" class="form-control">
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Mensaje</label>
-                      <textarea name="mensaje" rows="4" class="form-control" required>{{ form.mensaje.value|default:'' }}</textarea>
-                      {% if form.mensaje.errors %}<div class="text-danger small">{{ form.mensaje.errors|striptags }}</div>{% endif %}
+                      <textarea name="mensaje" rows="4" class="form-control" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Enviar</button>
                   </form>
@@ -411,7 +431,12 @@
                 <div class="card-body">
                   <h5 class="card-title mb-3">Dónde estamos</h5>
                   <div id="map" style="height: 380px; border-radius: .5rem; overflow: hidden;"></div>
-                  <div class="small text-muted mt-2">Villa Anisacate, Córdoba, Argentina.</div>
+                  <div class="small text-muted mt-3">
+                    <strong>Auxilio Bonannata</strong><br>
+                    Ruta 5 km 35<br>
+                    Anisacate, CP 5189<br>
+                    Córdoba, Argentina
+                  </div>
                 </div>
               </div>
             </div>
@@ -422,7 +447,7 @@
 
     <footer class="py-4 bg-dark text-white-50">
       <div class="container text-center small">
-        © {{ now|default:2025 }} Auxilio Bonannata — Todos los derechos reservados
+        © {{ now|default:2026 }} Auxilio Bonannata — Todos los derechos reservados
       </div>
     </footer>
 
@@ -433,19 +458,17 @@
     <script src="{% static 'landing/js/main.js' %}"></script>
     <script>
       // Inicializar Leaflet
-      const map = L.map('map').setView([-31.749, -64.322], 12); // Aprox. Villa Anisacate
+      const map = L.map('map').setView([-31.715327, -64.404053], 14); // Ruta 5 km 35, Villa Anisacate
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; OpenStreetMap contributors'
       }).addTo(map);
-      L.marker([-31.749, -64.322]).addTo(map)
-        .bindPopup('<b>Auxilio Bonannata</b><br>Villa Anisacate, Córdoba')
-        .openPopup();
+      L.marker([-31.715327, -64.404053]).addTo(map)
+//        .bindPopup('<b>Auxilio Bonannata</b><br>Ruta 5 km 35<br>Anisacate, CP 5189<br>Córdoba')
+//        .openPopup();
 
       // Si el formulario fue enviado, enfocar contacto
-      {% if submitted %}
-        location.hash = '#contacto';
-      {% endif %}
+
     </script>
   </body>
   </html>

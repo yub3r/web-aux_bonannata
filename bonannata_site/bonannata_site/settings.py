@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_distill',
     'landing',
 ]
 
@@ -85,15 +86,24 @@ USE_TZ = True
 STATIC_URL = 'static/'
 # Carpeta destino para collectstatic (producción / despliegue)
 STATIC_ROOT = BASE_DIR / 'static_collected'
-STATICFILES_DIRS = [
-    # Incluir la carpeta de recursos como estáticos para desarrollo
-    (BASE_DIR.parent / 'recursos_download'),
-]
 
 # WhiteNoise: almacenamiento comprimido y manifest para producción
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+# Django-distill: carpeta de salida para el sitio estático generado
+DISTILL_DIR = BASE_DIR.parent / 'dist'
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Email a consola para desarrollo
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# Configuración de email
+# En desarrollo: consola (emails se muestran en la consola del servidor)
+# En producción (Hostinger): usar SMTP de Hotmail/Outlook
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+else:
+    # Para producción con Hostinger, usar SMTP de Outlook/Hotmail
+    EMAIL_HOST = 'smtp-mail.outlook.com'
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+    EMAIL_HOST_USER = 'auxiliobonannata@hotmail.com'  # ← Reemplazar con tu contraseña de app en variable de entorno
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD', '')  # usar variable de entorno en producción

@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set "VIRTUAL_ENV=C:\Users\yub3r\OneDrive\Tigres\bonannata\.venv"
+set "VIRTUAL_ENV=C:\Users\yub3r\OneDrive\Tigres\web-aux_bonannata\web-aux_bonannata\.venv"
 
 if not defined PROMPT set PROMPT=$P$G
 

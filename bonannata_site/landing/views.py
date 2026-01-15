@@ -25,7 +25,7 @@ def index(request):
                 subject,
                 body,
                 'no-reply@auxiliobonannata.com',
-                ['contacto@auxiliobonannata.com'],
+                ['auxiliobonannata@hotmail.com'],
                 fail_silently=True,
             )
             messages.success(

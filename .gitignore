@@ -1,0 +1,64 @@
+# Virtual Environment
+.venv/
+venv/
+env/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Django
+*.log
+*.pot
+db.sqlite3
+/bonannata_site/static_collected/
+/bonannata_site/static/admin/
+/bonannata_site/static/django_distill/
+
+# Build output
+/dist/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Node (si usas package.json)
+node_modules/
+npm-debug.log
+
+# Archivos temporales
+*.tmp
+*.bak
+.temp/
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
